@@ -1,4 +1,5 @@
 import React, { FC, ReactElement } from "react";
+import { Link } from "react-router-dom";
 
 const Catalog: FC = (): ReactElement => {
   return (
@@ -9,7 +10,7 @@ const Catalog: FC = (): ReactElement => {
       >
         <h2 className="text-light">Catalog</h2>
       </div>
-      <div className="row mw-100 m-0 p-5">
+      <div className="row mw-100 m-0 p-4">
         <div className="col-sm-12 col-md-3">
           <h3 className="text-custom-red">Filter</h3>
           <ul className="list-group bg-dark">
@@ -32,34 +33,91 @@ const Catalog: FC = (): ReactElement => {
           </ul>
         </div>
         <div className="col-sm-12 col-md-9">
-          <div className="container block text-light d-flex">
-            <div className="dropdown">
-              <button
-                className="bg-transparent dropdown-toggle text-light border-0"
-                type="button"
-                data-bs-toggle="dropdown"
-                aria-expanded="false"
-              >
-                Order By
-              </button>
-              <ul className="dropdown-menu">
-                <li>
-                  <a className="dropdown-item" href="#">
-                    Regular link
-                  </a>
-                </li>
-                <li>
-                  <a className="dropdown-item" href="#">
-                    Active link
-                  </a>
-                </li>
-                <li>
-                  <a className="dropdown-item" href="#">
-                    Another link
-                  </a>
-                </li>
-              </ul>
-            </div>
+          <div className="container block text-light d-flex justify-content-end align-items-center px-5">
+            <h5 className="text-light m-0">Sort</h5>
+            <button className="p-2 bg-transparent border-0 text-light mx-3">
+              <i className="fa-solid fa-arrow-down-a-z"></i>
+            </button>
+            <button className="p-2 bg-transparent border-0 text-light">
+              <i className="fa-solid fa-arrow-down-short-wide"></i>
+            </button>
+          </div>
+          <div className="block row g-3">
+            <Link
+              className="text-decoration-none overflow-hidden d-inline-block col-sm-12 col-md-6 col-lg-4 col-xl-3"
+              to="/product/asdas"
+            >
+              <div className="card border-0">
+                <img
+                  src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80"
+                  className="card-img-top"
+                  alt="..."
+                />
+                <div className="card-body text-truncate text-light bg-custom-gray">
+                  Headphoneasdasasasdasdasdasdsad
+                </div>
+              </div>
+            </Link>
+            <Link
+              className="text-decoration-none overflow-hidden d-inline-block col-sm-12 col-md-6 col-lg-4 col-xl-3"
+              to="/product/asdas"
+            >
+              <div className="card border-0">
+                <img
+                  src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80"
+                  className="card-img-top"
+                  alt="..."
+                />
+                <div className="card-body text-truncate text-light bg-custom-gray">
+                  Headphoneasdasasasdasdasdasdsad
+                </div>
+              </div>
+            </Link>
+            <Link
+              className="text-decoration-none overflow-hidden d-inline-block col-sm-12 col-md-6 col-lg-4 col-xl-3"
+              to="/product/asdas"
+            >
+              <div className="card border-0">
+                <img
+                  src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80"
+                  className="card-img-top"
+                  alt="..."
+                />
+                <div className="card-body text-truncate text-light bg-custom-gray">
+                  Headphoneasdasasasdasdasdasdsad
+                </div>
+              </div>
+            </Link>
+            <Link
+              className="text-decoration-none overflow-hidden d-inline-block col-sm-12 col-md-6 col-lg-4 col-xl-3"
+              to="/product/asdas"
+            >
+              <div className="card border-0">
+                <img
+                  src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80"
+                  className="card-img-top"
+                  alt="..."
+                />
+                <div className="card-body text-truncate text-light bg-custom-gray">
+                  Headphoneasdasasasdasdasdasdsad
+                </div>
+              </div>
+            </Link>
+            <Link
+              className="text-decoration-none overflow-hidden d-inline-block col-sm-12 col-md-6 col-lg-4 col-xl-3"
+              to="/product/asdas"
+            >
+              <div className="card border-0">
+                <img
+                  src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80"
+                  className="card-img-top"
+                  alt="..."
+                />
+                <div className="card-body text-truncate text-light bg-custom-gray">
+                  Headphoneasdasasasdasdasdasdsad
+                </div>
+              </div>
+            </Link>
           </div>
         </div>
       </div>

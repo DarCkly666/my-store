@@ -35,6 +35,7 @@ function App() {
             </Suspense>
           }
         />
+        <Route path="/product/:id" element={<h4>Product</h4>} />
         <Route path="*" element={<h3>Not Found </h3>} />
       </Routes>
       <Footer />
