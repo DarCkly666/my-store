@@ -4,11 +4,12 @@ $theme-colors: (
   "danger": #ff4136
 );
 $custom-colors: (
-  "custom-red": #FF626D,
+  "custom-red": #FF626D, //Change manual on CategoryItem, Search and Catalog
   "custom-orange": #FCAD72,
   "custom-gray": #333235,
   "custom-dark": #232227,
 );
+
 
 @mixin gradient-x($start-color: $custom-red, $end-color: $custom-orange, $start-percent: 0%, $end-percent: 100%) {
   background-image: linear-gradient(to right, $start-color $start-percent, $end-color $end-percent);
