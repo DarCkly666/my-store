@@ -1,16 +1,11 @@
-import React, { FC, ReactElement, useState } from "react";
+import React, { FC, ReactElement, useContext, useState } from "react";
 import CategoriesContainer from "../components/CategoriesContainer";
 import ProductsContainer from "../components/ProductsContainer";
-import { Category } from "../interfaces/category.interface";
+import { DataContext } from "../context/DataProvider";
 import { Product } from "../interfaces/product.interface";
 
-const Search = ({
-  products,
-  categories,
-}: {
-  products: Array<Product>;
-  categories: Array<Category>;
-}): ReactElement => {
+const Search = (): ReactElement => {
+  const { categories, products } = useContext(DataContext);
   const [query, setQuery] = useState<string>("");
   const [filterProducts, setFilterProducts] = useState<Array<Product>>([]);
   const [showCategories, setShowCategories] = useState<boolean>(true);

@@ -1,10 +1,12 @@
-import React, { ReactElement, useEffect, useState } from "react";
+import React, { ReactElement, useContext, useEffect, useState } from "react";
 import { Product } from "../interfaces/product.interface";
 import { useParams } from "react-router-dom";
 import ProductsContainer from "../components/ProductsContainer";
 import NotFound from "./NotFound";
+import { DataContext } from "../context/DataProvider";
 
-const Category = ({ products }: { products: Array<Product> }): ReactElement => {
+const Category = (): ReactElement => {
+  const { products } = useContext(DataContext);
   const { category } = useParams();
   const [categoryProducts, setCategoryProducts] = useState<Array<Product>>([]);
   const [loading, setLoading] = useState<boolean>(true);
@@ -27,25 +29,29 @@ const Category = ({ products }: { products: Array<Product> }): ReactElement => {
           {loading ? (
             <h2 className="text-custom-red">Loading...</h2>
           ) : (
-            <div
-              className=""
-              style={{
-                height: "200px",
-                background: `url(${categoryProducts[0].images[0]})`,
-                backgroundPosition: "center",
-                backgroundSize: "cover",
-              }}
-            >
+            <>
               <div
-                className="w-100 h-100 p-4 p-md-4 d-flex align-items-center"
+                className=""
                 style={{
-                  background: "linear-gradient(90deg, #FF626D, transparent)",
+                  height: "200px",
+                  background: `url(${categoryProducts[0].images[0]})`,
+                  backgroundPosition: "center",
+                  backgroundSize: "cover",
                 }}
               >
-                <h2 className="text-light">{category}</h2>
+                <div
+                  className="w-100 h-100 p-4 p-md-4 d-flex align-items-center"
+                  style={{
+                    background: "linear-gradient(90deg, #FF626D, transparent)",
+                  }}
+                >
+                  <h2 className="text-light">{category}</h2>
+                </div>
               </div>
-              <ProductsContainer products={categoryProducts} />
-            </div>
+              <div className="container py-4">
+                <ProductsContainer products={categoryProducts} />
+              </div>
+            </>
           )}
         </div>
       )}

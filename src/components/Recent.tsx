@@ -4,14 +4,16 @@ import ProductItem from "./ProductItem";
 
 const Recent = ({ products }: { products: Array<Product> }): ReactElement => {
   const [recent, setRecent] = useState<Array<Product>>([]);
+  const limit = 8;
 
   useEffect(() => {
-    products.sort(
+    const onLimit = products.sort(
       (productA: Product, productB: Product) =>
         productA.created - productB.created
     );
-    setRecent(products);
-  }, []);
+
+    setRecent(onLimit.slice(0, limit));
+  }, [products]);
   return (
     <div className="container py-4">
       <h3 className="text-center py-4 text-custom-red">Recent Added</h3>

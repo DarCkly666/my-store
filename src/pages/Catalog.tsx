@@ -1,15 +1,11 @@
-import React, { ReactElement, useState } from "react";
+import React, { ReactElement, useContext, useState } from "react";
 import ProductsContainer from "../components/ProductsContainer";
+import { DataContext } from "../context/DataProvider";
 import { Category } from "../interfaces/category.interface";
 import { Product } from "../interfaces/product.interface";
 
-const Catalog = ({
-  categories,
-  products,
-}: {
-  categories: Array<Category>;
-  products: Array<Product>;
-}): ReactElement => {
+const Catalog = (): ReactElement => {
+  const { products, categories } = useContext(DataContext);
   const [sortedProducts, setSortedProducts] =
     useState<Array<Product>>(products);
   const [sortAlphabet, setSortAlphabet] = useState<boolean>(true);

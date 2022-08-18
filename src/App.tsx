@@ -1,4 +1,11 @@
-import React, { lazy, Suspense, useEffect, useState } from "react";
+import React, {
+  lazy,
+  Suspense,
+  useCallback,
+  useContext,
+  useEffect,
+  useState,
+} from "react";
 import Navbar from "./components/Navbar";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Footer from "./components/Footer";
@@ -12,57 +19,65 @@ import dataCategories from "./utils/categories.json";
 import dataProducts from "./utils/products.json";
 import NotFound from "./pages/NotFound";
 import CategoryPage from "./pages/Category";
-
-const initialCategories: Array<Category> = [];
-const initialProducts: Array<Product> = [];
+import Loading from "./pages/Loading";
+import { DataContext } from "./context/DataProvider";
+import ProductPage from "./pages/ProductPage";
 
 function App() {
-  const [categories, setCategories] =
-    useState<Array<Category>>(initialCategories);
-  const [products, setProducts] = useState<Array<Product>>(initialProducts);
+  const { categories, setCategories, products, setProducts } =
+    useContext(DataContext);
+  const [loading, setLoading] = useState<boolean>(true);
+
+  const getData = useCallback(() => {
+    setCategories?.(dataCategories as Array<Category>);
+    setProducts?.(dataProducts as Array<Product>);
+    setLoading(false);
+  }, [categories, products]);
 
   useEffect(() => {
-    setCategories(dataCategories as Array<Category>);
-    setProducts(dataProducts as Array<Product>);
+    getData();
   }, []);
   return (
-    <Router>
-      <Navbar />
-      <Routes>
-        <Route
-          path="/"
-          element={
-            <Suspense fallback={<></>}>
-              <Home products={products} />
-            </Suspense>
-          }
-        />
-        <Route
-          path="/catalog"
-          element={
-            <Suspense fallback={<></>}>
-              <Catalog categories={categories} products={products} />
-            </Suspense>
-          }
-        />
-        <Route
-          path="/search"
-          element={
-            <Suspense fallback={<></>}>
-              <Search products={products} categories={categories} />
-            </Suspense>
-          }
-        />
+    <>
+      {loading ? (
+        <Loading />
+      ) : (
+        <Router>
+          <Navbar />
+          <Routes>
+            <Route
+              path="/"
+              element={
+                <Suspense fallback={<></>}>
+                  <Home />
+                </Suspense>
+              }
+            />
+            <Route
+              path="/catalog"
+              element={
+                <Suspense fallback={<></>}>
+                  <Catalog />
+                </Suspense>
+              }
+            />
+            <Route
+              path="/search"
+              element={
+                <Suspense fallback={<></>}>
+                  <Search />
+                </Suspense>
+              }
+            />
 
-        <Route path="/product/:id" element={<h4>Product</h4>} />
-        <Route
-          path="/category/:category"
-          element={<CategoryPage products={products} />}
-        />
-        <Route path="*" element={<NotFound />} />
-      </Routes>
-      <Footer />
-    </Router>
+            <Route path="/product/:id" element={<ProductPage />} />
+            <Route path="/category/:category" element={<CategoryPage />} />
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+          <Footer />
+        </Router>
+      )}
+    </>
   );
 }
 

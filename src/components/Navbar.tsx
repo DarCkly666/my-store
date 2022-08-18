@@ -5,7 +5,7 @@ const Navbar = (): ReactElement => {
   return (
     <nav className="navbar navbar-dark navbar-expand-lg bg-custom-red px-sm-1 px-md-2 px-lg-3 px-xl-4 px-xxl-5 shadow">
       <div className="container-fluid">
-        <a className="navbar-brand" href="#">
+        <a className="navbar-brand" href="/">
           Navbar
         </a>
         <button

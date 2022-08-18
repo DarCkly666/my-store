@@ -1,15 +1,17 @@
-import React, { ReactElement, useEffect, useState } from "react";
+import React, { ReactElement, useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { DataContext } from "../context/DataProvider";
 import { Product } from "../interfaces/product.interface";
 
 const Carousel = ({ products }: { products: Array<Product> }): ReactElement => {
+  console.log(products);
   const [carousel, setCarousel] = useState<Array<Product>>([]);
   const navigate = useNavigate();
 
   useEffect(() => {
     const filter = products.filter((item: Product) => item.featured === true);
     setCarousel([...filter]);
-  }, []);
+  }, [products]);
 
   return (
     <div
