@@ -1,10 +1,5 @@
-import React, {
-  ReactElement,
-  ReactHTMLElement,
-  useEffect,
-  useState,
-} from "react";
-import ProductItem from "../components/ProductItem";
+import React, { ReactElement, useState } from "react";
+import ProductsContainer from "../components/ProductsContainer";
 import { Category } from "../interfaces/category.interface";
 import { Product } from "../interfaces/product.interface";
 
@@ -85,10 +80,20 @@ const Catalog = ({
   return (
     <div className="bg-dark min-vh-100">
       <div
-        className="bg-custom-red p-4 d-flex align-items-center"
-        style={{ height: "200px" }}
+        className=""
+        style={{
+          height: "200px",
+          background: `url(${products[0].images[0]})`,
+          backgroundPosition: "center",
+          backgroundSize: "cover",
+        }}
       >
-        <h2 className="text-light">Catalog</h2>
+        <div
+          className="w-100 h-100 p-4 p-md-4 d-flex align-items-center"
+          style={{ background: "linear-gradient(90deg, #FF626D, transparent)" }}
+        >
+          <h2 className="text-light">Search</h2>
+        </div>
       </div>
       <div className="row mw-100 m-0 p-4">
         <div className="col-sm-12 col-md-3">
@@ -132,11 +137,12 @@ const Catalog = ({
               <i className="fa-solid fa-arrow-down-short-wide"></i>
             </button>
           </div>
-          <div className="d-flex flex-wrap justify-content-around gap-2 py-3">
+          {/* <div className="d-flex flex-wrap justify-content-around gap-2 py-3">
             {sortedProducts.map((product: Product) => (
               <ProductItem key={product.id} product={product} />
             ))}
-          </div>
+          </div> */}
+          <ProductsContainer products={sortedProducts} />
         </div>
       </div>
     </div>

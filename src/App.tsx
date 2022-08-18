@@ -10,6 +10,7 @@ const Search = lazy(() => import("./pages/Search"));
 
 import dataCategories from "./utils/categories.json";
 import dataProducts from "./utils/products.json";
+import NotFound from "./pages/NotFound";
 
 const initialCategories: Array<Category> = [];
 const initialProducts: Array<Product> = [];
@@ -47,12 +48,12 @@ function App() {
           path="/search"
           element={
             <Suspense fallback={<></>}>
-              <Search />
+              <Search products={products} categories={categories} />
             </Suspense>
           }
         />
         <Route path="/product/:id" element={<h4>Product</h4>} />
-        <Route path="*" element={<h3>Not Found </h3>} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
       <Footer />
     </Router>
