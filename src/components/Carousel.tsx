@@ -1,45 +1,66 @@
-import React, { ReactElement } from "react";
+import React, { ReactElement, useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { Product } from "../interfaces/product.interface";
 
-const Carousel = (): ReactElement => {
+const Carousel = ({ products }: { products: Array<Product> }): ReactElement => {
+  const [carousel, setCarousel] = useState<Array<Product>>([]);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const filter = products.filter((item: Product) => item.featured === true);
+    setCarousel([...filter]);
+  }, []);
+
   return (
     <div
-      id="carouselExampleInterval"
-      className="carousel slide vh-100"
+      id="carousel"
+      className="carousel slide carousel-fade"
       data-bs-ride="carousel"
+      style={{ height: "600px" }}
     >
       <div className="carousel-inner h-100">
-        <div
-          className="carousel-item h-100 w-100 active"
-          // data-bs-interval="2000"
-        >
-          <img
-            src="https://images.unsplash.com/photo-1547932087-59a8f2be576e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80"
-            className="d-block h-100 w-100"
-            style={{ objectFit: "cover" }}
-            alt="..."
-          />
-        </div>
-        <div className="carousel-item h-100 w-100">
-          <img
-            src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80"
-            className="d-block h-100 w-100"
-            style={{ objectFit: "cover" }}
-            alt="..."
-          />
-        </div>
-        <div className="carousel-item h-100 w-100">
-          <img
-            src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=799&q=80"
-            className="d-block h-100 w-100"
-            style={{ objectFit: "cover" }}
-            alt="..."
-          />
-        </div>
+        {carousel.map((item: Product, index: number) => {
+          if (index === 0) {
+            return (
+              <div
+                key={item.id}
+                className="carousel-item h-100 w-100 active"
+                onClick={() => {
+                  navigate(`/product/${item.id}`);
+                }}
+              >
+                <img
+                  src={item.images[0]}
+                  className="d-block h-100 w-100"
+                  style={{ objectFit: "cover" }}
+                  alt={item.name}
+                />
+              </div>
+            );
+          } else {
+            return (
+              <div
+                key={item.id}
+                className="carousel-item h-100 w-100"
+                onClick={() => {
+                  navigate(`/product/${item.id}`);
+                }}
+              >
+                <img
+                  src={item.images[0]}
+                  className="d-block h-100 w-100"
+                  style={{ objectFit: "cover" }}
+                  alt={item.name}
+                />
+              </div>
+            );
+          }
+        })}
       </div>
       <button
         className="carousel-control-prev"
         type="button"
-        data-bs-target="#carouselExampleInterval"
+        data-bs-target="#carousel"
         data-bs-slide="prev"
       >
         <span className="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -48,7 +69,7 @@ const Carousel = (): ReactElement => {
       <button
         className="carousel-control-next"
         type="button"
-        data-bs-target="#carouselExampleInterval"
+        data-bs-target="#carousel"
         data-bs-slide="next"
       >
         <span className="carousel-control-next-icon" aria-hidden="true"></span>

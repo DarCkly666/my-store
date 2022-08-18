@@ -1,12 +1,13 @@
-import React, { FC, ReactElement } from "react";
+import React, { ReactElement } from "react";
 import Carousel from "../components/Carousel";
-import Resent from "../components/Resent";
+import Recent from "../components/Recent";
+import { Product } from "../interfaces/product.interface";
 
-const Home: FC = (): ReactElement => {
+const Home = ({ products }: { products: Array<Product> }): ReactElement => {
   return (
     <div className="bg-dark min-vh-100">
-      <Carousel />
-      <Resent />
+      <Carousel products={products} />
+      <Recent products={products} />
     </div>
   );
 };
