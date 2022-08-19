@@ -15,10 +15,6 @@ const Home = lazy(() => import("./pages/Home"));
 const Catalog = lazy(() => import("./pages/Catalog"));
 const Search = lazy(() => import("./pages/Search"));
 
-import dataCategories from "./utils/categories.json";
-import dataProducts from "./utils/products.json";
-import dataBanners from "./utils/banners.json";
-
 import NotFound from "./pages/NotFound";
 import CategoryPage from "./pages/Category";
 import Loading from "./pages/Loading";
@@ -33,10 +29,24 @@ function App() {
     useContext(DataContext);
   const [loading, setLoading] = useState<boolean>(true);
 
-  const getData = useCallback(() => {
-    setCategories?.(dataCategories as Array<Category>);
-    setProducts?.(dataProducts as Array<Product>);
-    setBanners?.(dataBanners as Array<Banner>);
+  const getData = useCallback(async () => {
+    const getData = new GetData();
+    try {
+      const arrayBanners: Array<Banner> = await getData.getBanners(
+        "store_banners"
+      );
+      setBanners?.(arrayBanners);
+      const arrayProducts: Array<Product> = await getData.getProducts(
+        "store_products"
+      );
+      setProducts?.(arrayProducts);
+      const arrayCategories: Array<Category> = await getData.getCategories(
+        "store_categories"
+      );
+      setCategories?.(arrayCategories);
+    } catch (error) {
+      console.log("ERROR", error);
+    }
     setLoading(false);
   }, [categories, products]);
 

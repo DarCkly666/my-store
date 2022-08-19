@@ -3,7 +3,6 @@ import { useNavigate } from "react-router-dom";
 import { Product } from "../interfaces/product.interface";
 
 const Carousel = ({ products }: { products: Array<Product> }): ReactElement => {
-  console.log(products);
   const [carousel, setCarousel] = useState<Array<Product>>([]);
   const navigate = useNavigate();
 
@@ -17,7 +16,7 @@ const Carousel = ({ products }: { products: Array<Product> }): ReactElement => {
       id="carousel"
       className="carousel slide carousel-fade"
       data-bs-ride="carousel"
-      style={{ height: "600px" }}
+      style={{ height: "500px" }}
     >
       <div className="carousel-inner h-100">
         {carousel.map((item: Product, index: number) => {

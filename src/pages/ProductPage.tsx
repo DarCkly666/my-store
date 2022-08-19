@@ -71,7 +71,7 @@ const ProductPage = (): ReactElement => {
               </p>
               <p>
                 <b>Categorías: </b>
-                {product.category.join(",")}
+                {product.category.join(", ")}
               </p>
             </div>
           </div>

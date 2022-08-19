@@ -1,6 +1,7 @@
 import React, { ReactElement, useContext, useEffect, useState } from "react";
 import ProductsContainer from "../components/ProductsContainer";
 import { DataContext } from "../context/DataProvider";
+import { Banner } from "../interfaces/banner.interface";
 import { Category } from "../interfaces/category.interface";
 import { Product } from "../interfaces/product.interface";
 
@@ -11,6 +12,7 @@ const Catalog = (): ReactElement => {
   const [sortAlphabet, setSortAlphabet] = useState<boolean>(true);
   const [sortLatest, setSortLatest] = useState<boolean>(true);
   const [categoriesFilter, setCategoriesFilter] = useState<Array<string>>([]);
+  const [bannerImage, setBannerImage] = useState<string>("");
 
   const sortAlphabetically = (): void => {
     if (sortAlphabet) {
@@ -43,7 +45,6 @@ const Catalog = (): ReactElement => {
   };
 
   const sortByCategory = (): void => {
-    console.log(categoriesFilter);
     if (categoriesFilter.length === 0) {
       setSortedProducts([...products]);
     } else {
@@ -52,7 +53,6 @@ const Catalog = (): ReactElement => {
           categoriesFilter.includes(c)
         );
         if (isIncluded) {
-          console.log(product);
           return product;
         }
       });
@@ -73,15 +73,24 @@ const Catalog = (): ReactElement => {
     sortByCategory();
   };
 
+  useEffect(() => {
+    if (banners.length > 0) {
+      const b = banners.filter((banner: Banner) => banner.name === "Catalog");
+      if (b.length > 0) {
+        setBannerImage(b[0].banner);
+      }
+    }
+  }, [bannerImage]);
+
   return (
     <div className="bg-dark min-vh-100">
       <div
         className=""
         style={{
           height: "200px",
-          background: `${banners[0].banner}`,
-          backgroundPosition: "center",
+          background: `url(${bannerImage})`,
           backgroundSize: "cover",
+          backgroundPosition: "center",
         }}
       >
         <div

@@ -1,7 +1,14 @@
-import React, { FC, ReactElement, useContext, useState } from "react";
+import React, {
+  FC,
+  ReactElement,
+  useContext,
+  useEffect,
+  useState,
+} from "react";
 import CategoriesContainer from "../components/CategoriesContainer";
 import ProductsContainer from "../components/ProductsContainer";
 import { DataContext } from "../context/DataProvider";
+import { Banner } from "../interfaces/banner.interface";
 import { Product } from "../interfaces/product.interface";
 
 const Search = (): ReactElement => {
@@ -9,6 +16,7 @@ const Search = (): ReactElement => {
   const [query, setQuery] = useState<string>("");
   const [filterProducts, setFilterProducts] = useState<Array<Product>>([]);
   const [showCategories, setShowCategories] = useState<boolean>(true);
+  const [bannerImage, setBannerImage] = useState<string>("");
 
   const searchProduct = (q: string) => {
     if (q.length === 0) {
@@ -38,13 +46,22 @@ const Search = (): ReactElement => {
     searchProduct(event.target.value);
   };
 
+  useEffect(() => {
+    if (banners.length > 0) {
+      const b = banners.filter((banner: Banner) => banner.name === "Search");
+      if (b.length > 0) {
+        setBannerImage(b[0].banner);
+      }
+    }
+  }, [bannerImage]);
+
   return (
     <div className="bg-dark min-vh-100">
       <div
         className=""
         style={{
           height: "200px",
-          background: `${banners[1].banner}`,
+          background: `url(${banners[1].banner})`,
           backgroundPosition: "center",
           backgroundSize: "cover",
         }}
