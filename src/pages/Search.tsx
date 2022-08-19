@@ -5,7 +5,7 @@ import { DataContext } from "../context/DataProvider";
 import { Product } from "../interfaces/product.interface";
 
 const Search = (): ReactElement => {
-  const { categories, products } = useContext(DataContext);
+  const { categories, products, banners } = useContext(DataContext);
   const [query, setQuery] = useState<string>("");
   const [filterProducts, setFilterProducts] = useState<Array<Product>>([]);
   const [showCategories, setShowCategories] = useState<boolean>(true);
@@ -44,7 +44,7 @@ const Search = (): ReactElement => {
         className=""
         style={{
           height: "200px",
-          background: `url(${categories[0].image})`,
+          background: `${banners[1].banner}`,
           backgroundPosition: "center",
           backgroundSize: "cover",
         }}
