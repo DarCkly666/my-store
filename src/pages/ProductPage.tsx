@@ -1,22 +1,15 @@
 import React, { ReactElement, useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import Gallery from "../components/Gallery";
 import { DataContext } from "../context/DataProvider";
-import AliceCarousel from "react-alice-carousel";
 import { Product } from "../interfaces/product.interface";
 
 const ProductPage = (): ReactElement => {
   const { id } = useParams();
   const { products } = useContext(DataContext);
   const [product, setProduct] = useState<Product | null>(null);
-  const [gallery, setGallery] = useState<Array<ReactElement>>([]);
 
-  const getGallery = () => {
-    if (product) {
-      product.images.map((image: string, index: number) => {
-        setGallery([...gallery, <img key={index} src={image} alt={image} />]);
-      });
-    }
-  };
+  const sendMessage = `https://wa.me/59160432020?text=Quisiera%20comprar%20el%20producto%20*${product?.name}*%20que%20vi%20en%20su%20tienda%0A%0A${window.location.href}`;
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -25,27 +18,70 @@ const ProductPage = (): ReactElement => {
     );
     if (productsFound.length !== 0) {
       setProduct(productsFound[0]);
-      getGallery();
     } else {
       setProduct(null);
     }
   }, []);
 
   return (
-    <div className="min-vh-100 bg-dark p-3">
+    <div className="min-vh-100 bg-dark p-3 d-flex flex-column align-items-center">
       {!product ? (
         <h2>Product not found</h2>
       ) : (
         <>
-          <div className="shadow row m-4 rounded">
-            <div className="col-xs-12 col-md-6 bg-custom-orange overflow-hidden">
-              <AliceCarousel items={gallery} />
+          <div className="shadow row m-4 rounded w-100 overflow-hidden">
+            <div
+              className="col-xs-12 col-md-6 d-inline-block p-0"
+              style={{ height: "500px", maxHeight: "500px" }}
+            >
+              <Gallery items={product.images} autoStart={true} />
             </div>
             <div
-              className="col-xs-12 col-md-6 bg-primary"
-              style={{ height: "400px" }}
-            ></div>
+              className="col-xs-12 col-md-6 p-4 text-light"
+              style={{ height: "500px", maxHeight: "500px" }}
+            >
+              <h3 className="text-center mb-3">{product.name}</h3>
+              <p>
+                <b>Descripción: </b>
+                {product.description}
+              </p>
+              <p>
+                <b>Disponibilidad: </b>
+                {product.stock > 0 ? "Disponible" : "Agotado"}
+              </p>
+              <p>
+                <b>Precio: </b>
+              </p>
+              <p>
+                <b>Antes: </b>{" "}
+                <s>
+                  {new Intl.NumberFormat("es-BO", {
+                    style: "currency",
+                    currency: "BOB",
+                  }).format(product.price)}
+                </s>
+              </p>
+              <p>
+                <b>Ahora: </b>{" "}
+                {new Intl.NumberFormat("es-BO", {
+                  style: "currency",
+                  currency: "BOB",
+                }).format((product.price * (100 - product.discount)) / 100)}
+              </p>
+              <p>
+                <b>Categorías: </b>
+                {product.category.join(",")}
+              </p>
+            </div>
           </div>
+          <a
+            type="button"
+            className="btn btn-outline-success bg-success text-light btn-lg px-4"
+            href={sendMessage}
+            target="_blanck"
+          >
+            <i className="fa-brands fa-whatsapp me-2"></i>Contact
+          </a>
         </>
       )}
     </div>

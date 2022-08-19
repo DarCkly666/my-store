@@ -37,7 +37,7 @@ const Navbar = (): ReactElement => {
               </NavLink>
             </li>
           </ul>
-          <div>
+          <div className="d-none">
             <button
               type="button"
               className="btn bg-transparent position-relative"
