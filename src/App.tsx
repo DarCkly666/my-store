@@ -26,6 +26,8 @@ import { DataContext } from "./context/DataProvider";
 import ProductPage from "./pages/ProductPage";
 import { Banner } from "./interfaces/banner.interface";
 
+import { GetData } from "./connections/GetData";
+
 function App() {
   const { categories, setCategories, products, setProducts, setBanners } =
     useContext(DataContext);
