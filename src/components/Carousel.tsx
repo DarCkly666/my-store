@@ -1,6 +1,5 @@
-import React, { ReactElement, useContext, useEffect, useState } from "react";
+import React, { ReactElement, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { DataContext } from "../context/DataProvider";
 import { Product } from "../interfaces/product.interface";
 
 const Carousel = ({ products }: { products: Array<Product> }): ReactElement => {

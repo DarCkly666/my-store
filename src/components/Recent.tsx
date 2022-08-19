@@ -16,7 +16,7 @@ const Recent = ({ products }: { products: Array<Product> }): ReactElement => {
   }, [products]);
   return (
     <div className="container py-4">
-      <h3 className="text-center py-4 text-custom-red">Recent Added</h3>
+      <h3 className="text-center py-4 text-custom-red">Recientes</h3>
       <div className="d-flex flex-wrap justify-content-center gap-4">
         {recent.map((product: Product) => (
           <ProductItem key={product.id} product={product} />

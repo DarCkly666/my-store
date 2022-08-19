@@ -6,7 +6,7 @@ const Footer: FC = (): ReactElement => {
       className="d-flex justify-content-center align-items-center bg-custom-red"
       style={{ height: "100px" }}
     >
-      <h3 className="text-light">Footer</h3>
+      <h3 className="text-light">Mi tienda</h3>
     </div>
   );
 };

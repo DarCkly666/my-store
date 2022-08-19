@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import Gallery from "../components/Gallery";
 import { DataContext } from "../context/DataProvider";
 import { Product } from "../interfaces/product.interface";
+import NotFound from "./NotFound";
 
 const ProductPage = (): ReactElement => {
   const { id } = useParams();
@@ -26,7 +27,7 @@ const ProductPage = (): ReactElement => {
   return (
     <div className="min-vh-100 bg-dark p-3 d-flex flex-column align-items-center">
       {!product ? (
-        <h2>Product not found</h2>
+        <NotFound message="Producto no encontrado" />
       ) : (
         <>
           <div className="shadow row m-4 rounded w-100 overflow-hidden">

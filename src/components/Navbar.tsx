@@ -6,7 +6,7 @@ const Navbar = (): ReactElement => {
     <nav className="navbar navbar-dark navbar-expand-lg bg-custom-red px-sm-1 px-md-2 px-lg-3 px-xl-4 px-xxl-5 shadow">
       <div className="container-fluid">
         <a className="navbar-brand" href="/">
-          Navbar
+          Mi tienda
         </a>
         <button
           className="navbar-toggler"
@@ -23,17 +23,17 @@ const Navbar = (): ReactElement => {
           <ul className="navbar-nav w-100 d-flex justify-content-center">
             <li className="nav-item">
               <NavLink className="nav-link" aria-current="page" to="/">
-                Home
+                Inicio
               </NavLink>
             </li>
             <li className="nav-item">
               <NavLink className="nav-link" to="/catalog">
-                Catalog
+                Catálogo
               </NavLink>
             </li>
             <li className="nav-item">
               <NavLink className="nav-link" to="/search">
-                Search
+                Buscar
               </NavLink>
             </li>
           </ul>

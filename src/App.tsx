@@ -17,20 +17,24 @@ const Search = lazy(() => import("./pages/Search"));
 
 import dataCategories from "./utils/categories.json";
 import dataProducts from "./utils/products.json";
+import dataBanners from "./utils/banners.json";
+
 import NotFound from "./pages/NotFound";
 import CategoryPage from "./pages/Category";
 import Loading from "./pages/Loading";
 import { DataContext } from "./context/DataProvider";
 import ProductPage from "./pages/ProductPage";
+import { Banner } from "./interfaces/banner.interface";
 
 function App() {
-  const { categories, setCategories, products, setProducts } =
+  const { categories, setCategories, products, setProducts, setBanners } =
     useContext(DataContext);
   const [loading, setLoading] = useState<boolean>(true);
 
   const getData = useCallback(() => {
     setCategories?.(dataCategories as Array<Category>);
     setProducts?.(dataProducts as Array<Product>);
+    setBanners?.(dataBanners as Array<Banner>);
     setLoading(false);
   }, [categories, products]);
 
@@ -72,7 +76,10 @@ function App() {
 
             <Route path="/product/:id" element={<ProductPage />} />
             <Route path="/category/:category" element={<CategoryPage />} />
-            <Route path="*" element={<NotFound />} />
+            <Route
+              path="*"
+              element={<NotFound message="Página no encontrada" />}
+            />
           </Routes>
           <Footer />
         </Router>

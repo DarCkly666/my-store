@@ -5,7 +5,7 @@ import { Category } from "../interfaces/category.interface";
 import { Product } from "../interfaces/product.interface";
 
 const Catalog = (): ReactElement => {
-  const { products, categories } = useContext(DataContext);
+  const { products, categories, banners } = useContext(DataContext);
   const [sortedProducts, setSortedProducts] =
     useState<Array<Product>>(products);
   const [sortAlphabet, setSortAlphabet] = useState<boolean>(true);
@@ -79,7 +79,7 @@ const Catalog = (): ReactElement => {
         className=""
         style={{
           height: "200px",
-          background: `url(${products[0].images[0]})`,
+          background: `${banners[0].banner}`,
           backgroundPosition: "center",
           backgroundSize: "cover",
         }}
@@ -88,12 +88,12 @@ const Catalog = (): ReactElement => {
           className="w-100 h-100 p-4 p-md-4 d-flex align-items-center"
           style={{ background: "linear-gradient(90deg, #FF626D, transparent)" }}
         >
-          <h2 className="text-light">Search</h2>
+          <h2 className="text-light">Catálogo</h2>
         </div>
       </div>
       <div className="row mw-100 m-0 p-4">
         <div className="col-sm-12 col-md-3">
-          <h3 className="text-custom-red">Filter</h3>
+          <h3 className="text-custom-red">Filtro</h3>
           <ul className="list-group bg-dark">
             {categories.map((category: Category) => (
               <li
@@ -119,7 +119,7 @@ const Catalog = (): ReactElement => {
         </div>
         <div className="col-sm-12 col-md-9">
           <div className="container block text-light d-flex justify-content-end align-items-center px-5">
-            <h5 className="text-light m-0">Sort</h5>
+            <h5 className="text-light m-0">Ordenar</h5>
             <button
               className="p-2 bg-transparent border-0 text-light mx-3"
               onClick={sortAlphabetically}
@@ -133,11 +133,6 @@ const Catalog = (): ReactElement => {
               <i className="fa-solid fa-arrow-down-short-wide"></i>
             </button>
           </div>
-          {/* <div className="d-flex flex-wrap justify-content-around gap-2 py-3">
-            {sortedProducts.map((product: Product) => (
-              <ProductItem key={product.id} product={product} />
-            ))}
-          </div> */}
           <ProductsContainer products={sortedProducts} />
         </div>
       </div>

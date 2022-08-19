@@ -1,4 +1,4 @@
-import React, { ReactElement, useContext, useEffect } from "react";
+import React, { ReactElement, useContext } from "react";
 import Carousel from "../components/Carousel";
 import Recent from "../components/Recent";
 import { DataContext } from "../context/DataProvider";

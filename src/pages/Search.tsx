@@ -53,7 +53,7 @@ const Search = (): ReactElement => {
           className="w-100 h-100 p-4 p-md-4 d-flex align-items-center"
           style={{ background: "linear-gradient(90deg, #FF626D, transparent)" }}
         >
-          <h2 className="text-light">Search</h2>
+          <h2 className="text-light">Buscar</h2>
         </div>
       </div>
       <div className="container py-4">
@@ -61,7 +61,7 @@ const Search = (): ReactElement => {
           <input
             className="col-8 form-control rounded-pill text-light bg-custom-gray border-custom-red"
             type="text"
-            placeholder="Search something"
+            placeholder="Tomatodo, mochila..."
             value={query}
             autoFocus={true}
             onChange={(event) => onChangeQuery(event)}

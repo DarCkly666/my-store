@@ -8,7 +8,7 @@
     ],
     "price": 123,
     "stock": 6,
-    "discount": 50,
+    "discount": 10,
     "featured": true,
     "category": ["Clothes", "Kids"],
     "created": 16988848448
@@ -37,31 +37,10 @@
     ],
     "price": 244.4,
     "stock": 6,
-    "discount": 50,
+    "discount": 20,
     "featured": true,
     "category": ["Electronic"],
     "created": 16984348328
-  },
-  {
-    "id": "1234adasd",
-    "name": "Laptop",
-    "description": "Laptop",
-    "images": [
-      "https://images.unsplash.com/photo-1507764923504-cd90bf7da772?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80",
-      "https://images.unsplash.com/photo-1468436139062-f60a71c5c892?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80",
-      "https://images.unsplash.com/photo-1507764923504-cd90bf7da772?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80",
-      "https://images.unsplash.com/photo-1468436139062-f60a71c5c892?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80",
-      "https://images.unsplash.com/photo-1507764923504-cd90bf7da772?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80",
-      "https://images.unsplash.com/photo-1468436139062-f60a71c5c892?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80",
-      "https://images.unsplash.com/photo-1507764923504-cd90bf7da772?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80",
-      "https://images.unsplash.com/photo-1468436139062-f60a71c5c892?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80"
-    ],
-    "price": 244.4,
-    "stock": 6,
-    "discount": 50,
-    "featured": true,
-    "category": ["Electronic"],
-    "created": 16398848328
   },
   {
     "id": "123456689",
@@ -72,7 +51,7 @@
       "https://images.unsplash.com/photo-1592914637125-28479601c75a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80"
     ],
     "price": 123,
-    "stock": 6,
+    "stock": 0,
     "discount": 50,
     "featured": false,
     "category": ["Accesories", "Women"],
@@ -146,9 +125,24 @@
     ],
     "price": 123,
     "stock": 6,
-    "discount": 50,
+    "discount": 0,
     "featured": false,
     "category": ["Accesories", "Women"],
     "created": 16988098448
+  },
+  {
+    "id": "1234adasdlp",
+    "name": "Laptop",
+    "description": "Laptop",
+    "images": [
+      "https://images.unsplash.com/photo-1507764923504-cd90bf7da772?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80",
+      "https://images.unsplash.com/photo-1468436139062-f60a71c5c892?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80"
+    ],
+    "price": 10000,
+    "stock": 1,
+    "discount": 0,
+    "featured": true,
+    "category": ["Electronic"],
+    "created": 16398848328
   }
 ]

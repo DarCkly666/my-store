@@ -4,12 +4,13 @@ import { useParams } from "react-router-dom";
 import ProductsContainer from "../components/ProductsContainer";
 import NotFound from "./NotFound";
 import { DataContext } from "../context/DataProvider";
+import { Category } from "../interfaces/category.interface";
 
-const Category = (): ReactElement => {
-  const { products } = useContext(DataContext);
+const CategoryPage = (): ReactElement => {
+  const { products, categories } = useContext(DataContext);
   const { category } = useParams();
   const [categoryProducts, setCategoryProducts] = useState<Array<Product>>([]);
-  const [loading, setLoading] = useState<boolean>(true);
+  const [banner, setBanner] = useState<string>("");
 
   useEffect(() => {
     if (category) {
@@ -17,46 +18,42 @@ const Category = (): ReactElement => {
         product.category.includes(category)
       );
       setCategoryProducts(filter);
-      setLoading(false);
+      const imageCategory = categories.filter(
+        (c: Category) =>
+          category.toLocaleLowerCase() === c.name.toLocaleLowerCase()
+      );
+      setBanner(imageCategory[0].image);
     }
   }, []);
   return (
-    <>
-      {categoryProducts.length === 0 ? (
-        <NotFound />
-      ) : (
-        <div className="min-vh-100 bg-dark">
-          {loading ? (
-            <h2 className="text-custom-red">Loading...</h2>
-          ) : (
-            <>
-              <div
-                className=""
-                style={{
-                  height: "200px",
-                  background: `url(${categoryProducts[0].images[0]})`,
-                  backgroundPosition: "center",
-                  backgroundSize: "cover",
-                }}
-              >
-                <div
-                  className="w-100 h-100 p-4 p-md-4 d-flex align-items-center"
-                  style={{
-                    background: "linear-gradient(90deg, #FF626D, transparent)",
-                  }}
-                >
-                  <h2 className="text-light">{category}</h2>
-                </div>
-              </div>
-              <div className="container py-4">
-                <ProductsContainer products={categoryProducts} />
-              </div>
-            </>
-          )}
+    <div className="min-vh-100 bg-dark">
+      <div
+        className=""
+        style={{
+          height: "200px",
+          background: `${banner}`,
+          backgroundPosition: "center",
+          backgroundSize: "cover",
+        }}
+      >
+        <div
+          className="w-100 h-100 p-4 p-md-4 d-flex align-items-center"
+          style={{
+            background: "linear-gradient(90deg, #FF626D, transparent)",
+          }}
+        >
+          <h2 className="text-light">{category}</h2>
         </div>
-      )}
-    </>
+      </div>
+      <div className="container py-4">
+        {categoryProducts.length === 0 ? (
+          <NotFound message="No hay productos" />
+        ) : (
+          <ProductsContainer products={categoryProducts} />
+        )}
+      </div>
+    </div>
   );
 };
 
-export default Category;
+export default CategoryPage;
