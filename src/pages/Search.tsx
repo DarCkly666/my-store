@@ -1,10 +1,4 @@
-import React, {
-  FC,
-  ReactElement,
-  useContext,
-  useEffect,
-  useState,
-} from "react";
+import React, { ReactElement, useContext, useEffect, useState } from "react";
 import CategoriesContainer from "../components/CategoriesContainer";
 import ProductsContainer from "../components/ProductsContainer";
 import { DataContext } from "../context/DataProvider";
@@ -61,7 +55,7 @@ const Search = (): ReactElement => {
         className=""
         style={{
           height: "200px",
-          background: `url(${banners[1].banner})`,
+          backgroundImage: `url(${banners[1].banner})`,
           backgroundPosition: "center",
           backgroundSize: "cover",
         }}

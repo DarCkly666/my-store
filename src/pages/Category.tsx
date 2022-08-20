@@ -31,7 +31,7 @@ const CategoryPage = (): ReactElement => {
         className=""
         style={{
           height: "200px",
-          background: `${banner}`,
+          backgroundImage: `url(${banner})`,
           backgroundPosition: "center",
           backgroundSize: "cover",
         }}

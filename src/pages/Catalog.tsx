@@ -88,7 +88,7 @@ const Catalog = (): ReactElement => {
         className=""
         style={{
           height: "200px",
-          background: `url(${bannerImage})`,
+          backgroundImage: `url(${bannerImage})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}
