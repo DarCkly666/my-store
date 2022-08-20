@@ -1,28 +1,12 @@
-import React, {
-  lazy,
-  Suspense,
-  useCallback,
-  useContext,
-  useEffect,
-  useState,
-} from "react";
-import Navbar from "./components/Navbar";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Footer from "./components/Footer";
+import React, { useCallback, useContext, useEffect, useState } from "react";
 import { Category } from "./interfaces/category.interface";
 import { Product } from "./interfaces/product.interface";
-const Home = lazy(() => import("./pages/Home"));
-const Catalog = lazy(() => import("./pages/Catalog"));
-const Search = lazy(() => import("./pages/Search"));
-
-import NotFound from "./pages/NotFound";
-import CategoryPage from "./pages/Category";
 import Loading from "./pages/Loading";
 import { DataContext } from "./context/DataProvider";
-import ProductPage from "./pages/ProductPage";
 import { Banner } from "./interfaces/banner.interface";
 
 import { GetData } from "./connections/GetData";
+import MainRouter from "./routes/MainRouter";
 
 function App() {
   const { categories, setCategories, products, setProducts, setBanners } =
@@ -53,51 +37,7 @@ function App() {
   useEffect(() => {
     getData();
   }, []);
-  return (
-    <>
-      {loading ? (
-        <Loading />
-      ) : (
-        <Router>
-          <Navbar />
-          <Routes>
-            <Route
-              path="/"
-              element={
-                <Suspense fallback={<></>}>
-                  <Home />
-                </Suspense>
-              }
-            />
-            <Route
-              path="/catalog"
-              element={
-                <Suspense fallback={<></>}>
-                  <Catalog />
-                </Suspense>
-              }
-            />
-            <Route
-              path="/search"
-              element={
-                <Suspense fallback={<></>}>
-                  <Search />
-                </Suspense>
-              }
-            />
-
-            <Route path="/product/:id" element={<ProductPage />} />
-            <Route path="/category/:category" element={<CategoryPage />} />
-            <Route
-              path="*"
-              element={<NotFound message="Página no encontrada" />}
-            />
-          </Routes>
-          <Footer />
-        </Router>
-      )}
-    </>
-  );
+  return <>{loading ? <Loading /> : <MainRouter />}</>;
 }
 
 export default App;
