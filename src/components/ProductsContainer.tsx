@@ -8,7 +8,7 @@ const ProductsContainer = ({
   products: Array<Product>;
 }): ReactElement => {
   return (
-    <div className="d-flex flex-wrap justify-content-around gap-2 py-3">
+    <div className="d-flex flex-wrap justify-content-evenly gap-2 py-3">
       {products.map((product: Product) => (
         <ProductItem key={product.id} product={product} />
       ))}

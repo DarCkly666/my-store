@@ -13,8 +13,8 @@ const ProductItem = ({ product }: { product: Product }): ReactElement => {
           src={product.images[0]}
           className="card-img-top"
           style={{
-            height: "200px",
-            width: "250px",
+            height: "150px",
+            width: "150px",
             objectFit: "cover",
           }}
           alt={product.name}

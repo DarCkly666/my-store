@@ -82,7 +82,7 @@ const Search = (): ReactElement => {
           {showCategories ? (
             <CategoriesContainer categories={categories} />
           ) : filterProducts.length === 0 ? (
-            <h2 className="text-light text-center pt-5">Nothing found</h2>
+            <h2 className="text-light text-center pt-5">Nada encontrado.</h2>
           ) : (
             <ProductsContainer products={filterProducts} />
           )}
