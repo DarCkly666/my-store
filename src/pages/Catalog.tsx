@@ -96,7 +96,7 @@ const Catalog = (): ReactElement => {
         <div
           className="w-100 h-100 p-4 p-md-4 d-flex align-items-center"
           style={{
-            background: "linear-gradient(90deg, #FF626D, transparent)",
+            background: "linear-gradient(90deg, #E80535, transparent)",
           }}
         >
           <h2 className="text-light">Catálogo</h2>

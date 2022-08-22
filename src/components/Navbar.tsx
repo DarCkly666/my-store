@@ -1,11 +1,18 @@
 import React, { ReactElement } from "react";
 import { NavLink } from "react-router-dom";
+import shop from "../assets/bag.png";
 
 const Navbar = (): ReactElement => {
   return (
     <nav className="navbar navbar-dark navbar-expand-lg bg-custom-red px-sm-1 px-md-2 px-lg-3 px-xl-4 px-xxl-5 shadow">
       <div className="container-fluid">
-        <a className="navbar-brand" href="/">
+        <a className="navbar-brand align-items-center d-flex" href="/">
+          <img
+            src={shop}
+            alt=""
+            width="25"
+            className="d-inline-block align-text-top me-2"
+          />
           Mi tienda
         </a>
         <button
