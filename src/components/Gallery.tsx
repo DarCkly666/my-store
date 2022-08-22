@@ -1,14 +1,6 @@
 import React, { ReactElement, useState } from "react";
 
-const Gallery = ({
-  items,
-  autoStart = false,
-  delay = 2000,
-}: {
-  items: Array<string>;
-  autoStart?: boolean;
-  delay?: number;
-}): ReactElement => {
+const Gallery = ({ items }: { items: Array<string> }): ReactElement => {
   const [current, setCurrent] = useState<number>(0);
 
   return (

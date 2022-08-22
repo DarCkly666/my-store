@@ -10,7 +10,7 @@ const ProductPage = (): ReactElement => {
   const { products } = useContext(DataContext);
   const [product, setProduct] = useState<Product | null>(null);
 
-  const sendMessage = `https://wa.me/59160432020?text=Quisiera%20comprar%20el%20producto%20*${product?.name}*%20que%20vi%20en%20su%20tienda%0A%0A${window.location.href}`;
+  const sendMessage = `https://wa.me/59167525737?text=Quisiera%20comprar%20el%20producto%20*${product?.name}*%20que%20vi%20en%20su%20tienda%0A%0A${window.location.href}`;
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -35,7 +35,7 @@ const ProductPage = (): ReactElement => {
               className="col-xs-12 col-md-6 d-inline-block p-0"
               style={{ height: "500px", maxHeight: "500px" }}
             >
-              <Gallery items={product.images} autoStart={true} />
+              <Gallery items={product.images} />
             </div>
             <div
               className="col-xs-12 col-md-6 p-4 text-light"

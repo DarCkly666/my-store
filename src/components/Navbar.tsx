@@ -13,7 +13,7 @@ const Navbar = (): ReactElement => {
             width="25"
             className="d-inline-block align-text-top me-2"
           />
-          Mi tienda
+          Importadora T&T
         </a>
         <button
           className="navbar-toggler"

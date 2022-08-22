@@ -55,7 +55,7 @@ const Search = (): ReactElement => {
         className=""
         style={{
           height: "200px",
-          backgroundImage: `url(${banners[1].banner})`,
+          backgroundImage: `url(${bannerImage})`,
           backgroundPosition: "center",
           backgroundSize: "cover",
         }}
