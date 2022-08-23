@@ -6,7 +6,10 @@ const Footer: FC = (): ReactElement => {
       className="d-flex justify-content-center align-items-center bg-custom-red"
       style={{ height: "100px" }}
     >
-      <h4 className="text-light">Tienda Virtual - Cochabamba - Bolivia</h4>
+      <h5 className="text-light block">
+        Tienda Virtual - Cochabamba - Bolivia
+      </h5>
+      <h5 className="text-light block">+591 67525737</h5>
     </div>
   );
 };

@@ -10,7 +10,11 @@ const ProductPage = (): ReactElement => {
   const { products } = useContext(DataContext);
   const [product, setProduct] = useState<Product | null>(null);
 
-  const sendMessage = `https://wa.me/59167525737?text=Quisiera%20comprar%20el%20producto%20*${product?.name}*%20que%20vi%20en%20su%20tienda%0A%0A${window.location.href}`;
+  const sendMessage1 = `https://wa.me/59167525737?text=Quisiera%20comprar%20el%20producto%20*${product?.name}*%20que%20vi%20en%20su%20tienda%0A%0A${window.location.href}`;
+
+  const sendMessage2 = `https://wa.me/59179993468?text=Quisiera%20comprar%20el%20producto%20*${product?.name}*%20que%20vi%20en%20su%20tienda%0A%0A${window.location.href}`;
+
+  const sendMessage3 = `https://wa.me/59170721404?text=Quisiera%20comprar%20el%20producto%20*${product?.name}*%20que%20vi%20en%20su%20tienda%0A%0A${window.location.href}`;
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -75,14 +79,32 @@ const ProductPage = (): ReactElement => {
               </p>
             </div>
           </div>
-          <a
-            type="button"
-            className="btn btn-outline-success bg-success text-light btn-lg px-4"
-            href={sendMessage}
-            target="_blanck"
-          >
-            <i className="fa-brands fa-whatsapp me-2"></i>Contactar
-          </a>
+          <div className="d-flex justify-content-around flex-wrap">
+            <a
+              type="button"
+              className="btn btn-outline-success bg-success text-light btn-lg px-4"
+              href={sendMessage1}
+              target="_blanck"
+            >
+              <i className="fa-brands fa-whatsapp me-2"></i>Contactar 1
+            </a>
+            <a
+              type="button"
+              className="btn btn-outline-success bg-success text-light btn-lg px-4"
+              href={sendMessage2}
+              target="_blanck"
+            >
+              <i className="fa-brands fa-whatsapp me-2"></i>Contactar 2
+            </a>
+            <a
+              type="button"
+              className="btn btn-outline-success bg-success text-light btn-lg px-4"
+              href={sendMessage3}
+              target="_blanck"
+            >
+              <i className="fa-brands fa-whatsapp me-2"></i>Contactar 3
+            </a>
+          </div>
         </>
       )}
     </div>
