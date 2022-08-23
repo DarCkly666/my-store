@@ -81,7 +81,7 @@ const ProductPage = (): ReactElement => {
             href={sendMessage}
             target="_blanck"
           >
-            <i className="fa-brands fa-whatsapp me-2"></i>Contact
+            <i className="fa-brands fa-whatsapp me-2"></i>Contactar
           </a>
         </>
       )}

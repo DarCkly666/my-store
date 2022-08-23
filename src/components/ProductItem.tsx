@@ -7,6 +7,7 @@ const ProductItem = ({ product }: { product: Product }): ReactElement => {
     <Link
       className="text-decoration-none overflow-hidden d-inline-block"
       to={`/product/${product.id}`}
+      style={{ maxWidth: "150px" }}
     >
       <div className="card border-0">
         <img
