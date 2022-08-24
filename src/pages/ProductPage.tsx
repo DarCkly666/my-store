@@ -79,14 +79,14 @@ const ProductPage = (): ReactElement => {
               </p>
             </div>
           </div>
-          <div className="d-flex justify-content-around flex-wrap">
+          <div className="d-flex justify-content-around flex-wrap w-100 gap-3">
             <a
               type="button"
               className="btn btn-outline-success bg-success text-light btn-lg px-4"
               href={sendMessage1}
               target="_blanck"
             >
-              <i className="fa-brands fa-whatsapp me-2"></i>Contactar 1
+              <i className="fa-brands fa-whatsapp me-2"></i>Contacto 1
             </a>
             <a
               type="button"
@@ -94,7 +94,7 @@ const ProductPage = (): ReactElement => {
               href={sendMessage2}
               target="_blanck"
             >
-              <i className="fa-brands fa-whatsapp me-2"></i>Contactar 2
+              <i className="fa-brands fa-whatsapp me-2"></i>Contacto 2
             </a>
             <a
               type="button"
@@ -102,7 +102,7 @@ const ProductPage = (): ReactElement => {
               href={sendMessage3}
               target="_blanck"
             >
-              <i className="fa-brands fa-whatsapp me-2"></i>Contactar 3
+              <i className="fa-brands fa-whatsapp me-2"></i>Contacto 3
             </a>
           </div>
         </>
